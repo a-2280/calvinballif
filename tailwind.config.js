@@ -11,6 +11,12 @@ export default {
         // You can still keep the default mono override if you want
         mono: ['Roboto Mono', 'monospace'],
       },
+      colors: {
+        'primary': '#E1DFE1',
+        'secondary': '#F5F5F5',
+        'accent': '#C0BFC0',
+        'close': '#FF605C',
+      },
     },
   },
   plugins: [],

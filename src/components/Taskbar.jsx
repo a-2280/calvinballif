@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function Taskbar() {
   // Live time v
-  const [currentTime, setCurrentTime] = useState("00:00");
+  const [currentTime, setCurrentTime] = useState(formattedTime());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -25,7 +25,7 @@ function Taskbar() {
   // Live time ^
 
   return (
-    <div className="bg-red-400 flex justify-between py-2 px-4">
+    <div className="bg-secondary border-b-2 border-accent flex justify-between py-2 px-4">
       <p>Somebody's Websites</p>
       <div>{currentTime}</div>
     </div>
