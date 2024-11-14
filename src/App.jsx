@@ -1,11 +1,11 @@
 import Taskbar from "./components/Taskbar";
-import Icon from "./components/Icon";
+import Icons from "./components/Icons";
 
 function App() {
   return (
     <div className="bg-primary h-screen w-screen">
       <Taskbar />
-      <Icon />
+      <Icons />
     </div>
   );
 }
