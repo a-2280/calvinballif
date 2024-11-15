@@ -1,6 +1,9 @@
 function Icon(props) {
-  return(
-    <div className="w-[100px] flex flex-col justify-center items-center p-1 border-[1px] border-transparent hover:bg-black/10 hover:border-[1px] hover:border-black hover:border-dotted">
+  return (
+    <div
+      className="w-[100px] flex flex-col justify-center items-center p-1 border-[1px] border-transparent"
+      onClick={props.toggle}
+    >
       <div>
         <img src={props.src} alt={props.name} />
       </div>
