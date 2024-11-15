@@ -54,9 +54,9 @@ function ResumeWindow() {
         <p>Resume</p>
         <button className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"></button>
       </div>
-      <div className="bg-secondary p-4 h-[550px] overflow-y-scroll">
+      <div className="bg-secondary p-4 max-h-[550px] overflow-y-scroll">
         <p className="pb-4">Calvin Ballif</p>
-        <hr />
+        <hr className="border-accent border-[1px]" />
         <p className="font-bold pt-4">SUMMARY</p>
         <p className="pb-4">
           Motivated IT professional with expertise in technical support,
@@ -64,20 +64,20 @@ function ResumeWindow() {
           rapid learning, and team collaboration. Committed to delivering
           effective solutions and continuous improvement.
         </p>
-        <hr />
+        <hr className="border-accent border-[1px]" />
         <p className="font-bold pt-4">CERTIFICATIONS</p>
         <ul className="pb-4">
           <li>CompTIA A+</li>
           <li>CompTIA Network+</li>
           <li>CompTIA Security+</li>
         </ul>
-        <hr />
+        <hr className="border-accent border-[1px]" />
         <p className="font-bold pt-4">PROFESSIONAL EXPERIENCE</p>
         <p>
           <span className="font-bold">GPS Capital Markets</span> – South Jordan,
           UT
         </p>
-        <p>IT Support Specialist (08/2022 – Present)</p>
+        <p className="italic">IT Support Specialist (08/2022 – Present)</p>
         <ul>
           <li>
             Resolved hardware/software issues for end-users and trained them on
@@ -92,10 +92,10 @@ function ResumeWindow() {
             and offsite access.
           </li>
         </ul>
-        <p>
+        <p className="pt-2">
           <span className="font-bold">Novacoast</span> – Lehi, UT
         </p>
-        <p>SOC Analyst (1 year)</p>
+        <p className="italic">SOC Analyst (1 year)</p>
         <ul className="pb-4">
           <li>
             Monitored network activity using LogRhythm and Splunk, identifying
@@ -106,18 +106,12 @@ function ResumeWindow() {
             risks.
           </li>
         </ul>
-        <hr />
-        <p className="font-bold">TOOLS & SKILLS</p>
+        <hr className="border-accent border-[1px]" />
+        <p className="font-bold pt-4">TOOLS & SKILLS</p>
         <p>
           Active Directory-Azure LogRhythm-Splunk-HTML-CSS
           JavaScript-React/Next-Git Adobe Illustrator
         </p>
-        {/* <ul>
-          <li>Active Directory, Azure, LogRhythm, Splunk</li>
-          <li>HTML, CSS, JavaScript</li>
-          <li>React/Next</li>
-          <li>Git, Adobe Illustrator</li>
-        </ul> */}
       </div>
     </div>
   );
