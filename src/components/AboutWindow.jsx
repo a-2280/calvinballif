@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Window() {
+function AboutWindow() {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -51,19 +51,23 @@ function Window() {
         className="bg-accent flex justify-between items-center py-1 px-4 cursor-grab"
         onMouseDown={handleMouseDown}
       >
-        <p>Test</p>
+        <p>About</p>
         <button className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"></button>
       </div>
-      <div className="bg-secondary">
-        <p className="p-4">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum sequi
-          qui quam. Optio quidem illum distinctio, sapiente, velit quam eligendi
-          numquam harum aliquid dolores accusantium? Aperiam cumque cupiditate
-          animi deleniti!
+      <div className="bg-secondary p-4">
+        <p className="pb-4">
+          Somebody's Websites is an end-to-end development service, specializing
+          in custom websites that are scalable and easy to manage.
         </p>
+        <p className="pb-4">
+          Whether you’re looking for a plug and play site on Shopify or a
+          bespoke portfolio, we’ve got you covered.
+        </p>
+        <p>We specialize in the following frameworks:</p>
+        <p>HTML-CSS-JavaScript React\Next-Node-Sanity</p>
       </div>
     </div>
   );
 }
 
-export default Window;
+export default AboutWindow;
