@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div className="bg-secondary h-svh w-screen overflow-hidden">
+    <div className="bg-primary h-svh w-screen overflow-hidden">
       <Taskbar />
       <Icons onIconClick={toggleWindow} />
       {openWindows.about && (
