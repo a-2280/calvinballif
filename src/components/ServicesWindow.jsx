@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ServicesWindow() {
+function ServicesWindow({ onClose }) {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -52,35 +52,25 @@ function ServicesWindow() {
         onMouseDown={handleMouseDown}
       >
         <p>Services</p>
-        <button className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"></button>
+        <button
+          className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"
+          onClick={onClose}
+        ></button>
       </div>
       <div className="bg-secondary p-4 max-h-[550px] overflow-scroll">
         <hr className="border-accent border-[1px]" />
         <p className="py-4">Web Development</p>
         <hr className="border-accent border-[1px]" />
         <p className="pt-4">
-          I create modern, responsive websites tailored to your needs. From
-          clean designs to optimized performance, I ensure your online presence
-          is both visually appealing and functional.
+          I create responsive websites tailored to your needs. From clean
+          designs to optimized performance, I ensure your online presence is
+          both visually appealing and functional.
         </p>
         <p className="pt-4">Key Features:</p>
         <ul>
-          <li>
-            <span className="font-bold">Custom Design: </span>Websites built to
-            match your unique style and requirements.
-          </li>
-          <li>
-            <span className="font-bold">Responsive Development: </span>Ensuring
-            your site looks great on any device.
-          </li>
-          <li>
-            <span className="font-bold">Performance Focus: </span>Fast-loading
-            websites for a better user experience.
-          </li>
-          <li>
-            <span className="font-bold">Maintenance: </span>Ongoing support and
-            updates as needed.
-          </li>
+          <li>Custom Design</li>
+          <li>Quality UI</li>
+          <li>Ongoing maintenance & support</li>
         </ul>
       </div>
     </div>

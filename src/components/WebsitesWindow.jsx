@@ -4,7 +4,7 @@ import Icon from "./Icon";
 
 import lilyballif from "../images/lilyballif.webp";
 
-function WebsitesWindow() {
+function WebsitesWindow({ onClose }) {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -56,7 +56,10 @@ function WebsitesWindow() {
         onMouseDown={handleMouseDown}
       >
         <p>Websites</p>
-        <button className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"></button>
+        <button
+          className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"
+          onClick={onClose}
+        ></button>
       </div>
       <div className="bg-secondary grid grid-cols-2 grid-rows-2 justify-items-center items-center pt-4">
         <a href="https://lilyballif.com/" target="_blank">

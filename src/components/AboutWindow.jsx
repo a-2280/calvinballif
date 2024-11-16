@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function AboutWindow() {
+function AboutWindow({ onClose }) {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -52,7 +52,10 @@ function AboutWindow() {
         onMouseDown={handleMouseDown}
       >
         <p>About</p>
-        <button className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"></button>
+        <button
+          className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"
+          onClick={onClose} // Call the onClose function when clicked
+        ></button>
       </div>
       <div className="bg-secondary p-4">
         <p className="pb-4">

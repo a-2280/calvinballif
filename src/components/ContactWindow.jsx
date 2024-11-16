@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ContactWindow() {
+function ContactWindow({ onClose }) {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -78,7 +78,10 @@ function ContactWindow() {
         onMouseDown={handleMouseDown}
       >
         <p>Contact</p>
-        <button className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"></button>
+        <button
+          className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"
+          onClick={onClose}
+        ></button>
       </div>
       <div className="bg-secondary p-4">
         <form
