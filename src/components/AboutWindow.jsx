@@ -54,7 +54,7 @@ function AboutWindow({ onClose }) {
         <p>About</p>
         <button
           className="h-4 w-4 bg-close hover:bg-red-500 rounded-[50%] cursor-pointer"
-          onClick={onClose} // Call the onClose function when clicked
+          onClick={onClose}
         ></button>
       </div>
       <div className="bg-secondary p-4">
