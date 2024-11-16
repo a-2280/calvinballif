@@ -1,7 +1,7 @@
 function Icon(props) {
   return (
     <div
-      className="w-[100px] flex flex-col justify-center items-center p-1 border-[1px] border-transparent"
+      className="w-[100px] flex flex-col justify-center items-center p-1 border-[1px] border-transparent select-none"
       onClick={props.onClick}
     >
       <div>

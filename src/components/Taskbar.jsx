@@ -25,7 +25,7 @@ function Taskbar() {
   // Live time ^
 
   return (
-    <div className="bg-secondary border-b-[1px] border-accent flex justify-between py-2 px-4">
+    <div className="bg-secondary border-b-[1px] border-accent flex justify-between py-2 px-4 select-none">
       <p>Somebody's Websites</p>
       <div>{currentTime}</div>
     </div>

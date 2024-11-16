@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ResumeWindow({ onClose }) {
+function ResumeWindow({ onClose, bringToFront, zIndex }) {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -20,6 +20,7 @@ function ResumeWindow({ onClose }) {
   }, [dragging]);
 
   function handleMouseDown(e) {
+    bringToFront(); // Bring the window to the front when clicked or dragged
     setOffsetX(e.clientX - x);
     setOffsetY(e.clientY - y);
     setDragging(true);
@@ -41,14 +42,15 @@ function ResumeWindow({ onClose }) {
 
   return (
     <div
-      className="w-[300px] fixed"
+      className="w-[300px] fixed md:w-[500px] border-l-[1px] border-b-[1px] border-r-[1px] border-accent"
       style={{
         left: `${x}px`,
         top: `${y}px`,
+        zIndex: zIndex, // Dynamically apply z-index
       }}
     >
       <div
-        className="bg-accent flex justify-between items-center py-1 px-4 cursor-grab"
+        className="bg-accent flex justify-between items-center py-1 px-4 cursor-grab select-none"
         onMouseDown={handleMouseDown}
       >
         <p>Resume</p>
@@ -57,7 +59,7 @@ function ResumeWindow({ onClose }) {
           onClick={onClose}
         ></button>
       </div>
-      <div className="bg-secondary p-4 max-h-[550px] overflow-y-scroll">
+      <div className="bg-secondary p-4 max-h-[450px] overflow-y-scroll md:max-h-[750px]">
         <p className="pb-4">Calvin Ballif</p>
         <hr className="border-accent border-[1px]" />
         <p className="font-bold pt-4">SUMMARY</p>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function ContactWindow({ onClose }) {
+function ContactWindow({ onClose, bringToFront, zIndex }) {
   const [x, setX] = useState(50);
   const [y, setY] = useState(50);
   const [dragging, setDragging] = useState(false);
@@ -26,6 +26,7 @@ function ContactWindow({ onClose }) {
   }, [dragging]);
 
   function handleMouseDown(e) {
+    bringToFront(); // Bring the window to the front when clicked or dragged
     setOffsetX(e.clientX - x);
     setOffsetY(e.clientY - y);
     setDragging(true);
@@ -55,7 +56,6 @@ function ContactWindow({ onClose }) {
 
   function handleSubmit(e) {
     e.preventDefault(); // Prevent the default form submission behavior
-    // Perform form submission logic here (already done via `action`)
 
     // Clear the form
     setFormData({
@@ -67,14 +67,15 @@ function ContactWindow({ onClose }) {
 
   return (
     <div
-      className="w-[300px] fixed"
+      className="w-[300px] fixed md:w-[500px]"
       style={{
         left: `${x}px`,
         top: `${y}px`,
+        zIndex: zIndex, // Dynamically apply z-index
       }}
     >
       <div
-        className="bg-accent flex justify-between items-center py-1 px-4 cursor-grab"
+        className="bg-accent flex justify-between items-center py-1 px-4 cursor-grab select-none"
         onMouseDown={handleMouseDown}
       >
         <p>Contact</p>
@@ -83,7 +84,7 @@ function ContactWindow({ onClose }) {
           onClick={onClose}
         ></button>
       </div>
-      <div className="bg-secondary p-4">
+      <div className="bg-secondary p-4 border-l-[1px] border-b-[1px] border-r-[1px] border-accent md:flex md:justify-center">
         <form
           action="https://formsubmit.co/khaliff.williamss@gmail.com"
           method="POST"
@@ -92,7 +93,7 @@ function ContactWindow({ onClose }) {
           <div className="flex">
             <p className="pr-2">Name:</p>
             <input
-              className="border-[1.5px] border-accent outline-black"
+              className="border-[1.5px] border-accent outline-black w-[250px]"
               type="text"
               name="name"
               placeholder="John Doe"
@@ -104,7 +105,7 @@ function ContactWindow({ onClose }) {
           <div className="flex pt-4">
             <p className="pr-2">Email:</p>
             <input
-              className="border-[1.5px] border-accent outline-black"
+              className="border-[1.5px] border-accent outline-black md:w-[240px]"
               type="email"
               name="email"
               placeholder="name@email.com"
@@ -116,9 +117,9 @@ function ContactWindow({ onClose }) {
           <div className="pt-4">
             <p>Message:</p>
             <textarea
-              className="border-[1.5px] border-accent outline-black"
+              className="border-[1.5px] border-accent outline-black w-[268px] md:w-[305px]"
               name="message"
-              placeholder="message"
+              placeholder="message..."
               value={formData.message}
               onChange={handleChange}
               required

@@ -7,7 +7,7 @@ import tools from "../images/Tools.webp";
 
 function Icons({ onIconClick }) {
   return (
-    <div className="grid grid-cols-3 justify-items-center items-center pt-8 gap-4">
+    <div className="grid grid-cols-3 justify-items-center items-center pt-8 gap-4 lg:grid-cols-1 lg:justify-items-start lg:pl-8 lg:gap-8">
       <Icon src={computer} name="About" onClick={() => onIconClick("About")} />
       <Icon
         src={document}

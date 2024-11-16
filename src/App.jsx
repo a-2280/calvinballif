@@ -16,11 +16,32 @@ function App() {
     services: false,
   });
 
+  const [windowOrder, setWindowOrder] = useState([]);
+
   const toggleWindow = (windowName) => {
-    setOpenWindows((prev) => ({
-      ...prev,
-      [windowName.toLowerCase()]: !prev[windowName.toLowerCase()],
-    }));
+    setOpenWindows((prev) => {
+      const isOpen = prev[windowName.toLowerCase()];
+      if (!isOpen) {
+        // Add the window to the order list if opening
+        setWindowOrder((prevOrder) => [...prevOrder, windowName]);
+      }
+      return {
+        ...prev,
+        [windowName.toLowerCase()]: !isOpen,
+      };
+    });
+  };
+
+  const bringToFront = (windowName) => {
+    setWindowOrder((prevOrder) => {
+      const filtered = prevOrder.filter((name) => name !== windowName);
+      return [...filtered, windowName];
+    });
+  };
+
+  const getZIndex = (windowName) => {
+    const index = windowOrder.indexOf(windowName);
+    return index === -1 ? 0 : index + 1; // Default to 0 if not in order
   };
 
   return (
@@ -28,19 +49,39 @@ function App() {
       <Taskbar />
       <Icons onIconClick={toggleWindow} />
       {openWindows.about && (
-        <AboutWindow onClose={() => toggleWindow("about")} />
+        <AboutWindow
+          onClose={() => toggleWindow("about")}
+          bringToFront={() => bringToFront("about")}
+          zIndex={getZIndex("about")}
+        />
       )}
       {openWindows.resume && (
-        <ResumeWindow onClose={() => toggleWindow("resume")} />
+        <ResumeWindow
+          onClose={() => toggleWindow("resume")}
+          bringToFront={() => bringToFront("resume")}
+          zIndex={getZIndex("resume")}
+        />
       )}
       {openWindows.websites && (
-        <WebsitesWindow onClose={() => toggleWindow("websites")} />
+        <WebsitesWindow
+          onClose={() => toggleWindow("websites")}
+          bringToFront={() => bringToFront("websites")}
+          zIndex={getZIndex("websites")}
+        />
       )}
       {openWindows.contact && (
-        <ContactWindow onClose={() => toggleWindow("contact")} />
+        <ContactWindow
+          onClose={() => toggleWindow("contact")}
+          bringToFront={() => bringToFront("contact")}
+          zIndex={getZIndex("contact")}
+        />
       )}
       {openWindows.services && (
-        <ServicesWindow onClose={() => toggleWindow("services")} />
+        <ServicesWindow
+          onClose={() => toggleWindow("services")}
+          bringToFront={() => bringToFront("services")}
+          zIndex={getZIndex("services")}
+        />
       )}
     </div>
   );
