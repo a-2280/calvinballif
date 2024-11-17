@@ -26,7 +26,7 @@ function Taskbar() {
 
   return (
     <div className="bg-secondary border-b-[1px] border-accent flex justify-between py-2 px-4 select-none">
-      <p>Somebody's Websites</p>
+      <p>Calvin Ballif</p>
       <div>{currentTime}</div>
     </div>
   );
